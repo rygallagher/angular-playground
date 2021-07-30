@@ -1,0 +1,7 @@
+.calendar-container {
+    width: 500px;
+}
+
+::ng-deep mat-calendar-header {
+    display: none;
+}

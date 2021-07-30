@@ -1,0 +1,32 @@
+<span class="{{activeTheme}}">
+    <mat-toolbar color="primary" class="navbar">
+        <div class="logo example-spacer flex-row">
+            <button mat-icon-button class="menu-button" (click)="toggleSidenav()"><mat-icon>menu</mat-icon></button>
+        </div>
+    
+        <button mat-icon-button [matMenuTriggerFor]="menu">
+            <mat-icon>palette</mat-icon>
+        </button>
+
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item *ngFor="let color of allColors | keyvalue" (click)="setActiveColor(color.key)">
+                {{color.value}}
+            </button>
+        </mat-menu>
+
+        <button *ngIf="activeMode == 'dark'" mat-icon-button (click)="setMode()"><mat-icon>dark_mode</mat-icon></button>
+        <button *ngIf="activeMode != 'dark'" mat-icon-button (click)="setMode()"><mat-icon>light_mode</mat-icon></button>
+    </mat-toolbar>
+    
+    <mat-sidenav-container class="sidenav-container">
+        <mat-sidenav #sidenav mode="side" [(opened)]="opened">
+            <mat-nav-list>
+                <a mat-list-item routerLink="{{route.key}}" routerLinkActive="active-link" *ngFor="let route of routes | keyvalue">{{route.value}}</a>
+            </mat-nav-list>
+        </mat-sidenav>
+    
+        <mat-sidenav-content>
+            <router-outlet></router-outlet>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+</span>
