@@ -1,0 +1,58 @@
+@import '../../styles/styles.scss';
+
+.card {
+    width: 150px;
+    height: auto;
+    margin: 10px;
+}
+
+.card-image {    
+    height: 250px;
+}
+
+.flex-wrap {
+    display: flex; 
+    flex-wrap: wrap;
+}
+
+.card-description {
+    position: relative;
+    bottom: 10px;
+}
+
+.margin-lr-20 {
+    margin: 0 20px;
+}
+
+.min-width {
+    width: min-content;
+} 
+
+.float-right {
+    float: right;
+    margin-left: auto;
+}
+
+.padding-top-20 {
+    padding-top: 20px;
+}
+
+.margin-tb-2 {
+    margin: 2px 0;
+}
+
+.button-footer {
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    
+    button {
+        flex: 1;
+        padding: 10px;
+    }
+}
+
+.margin-right-10 {
+    margin-right: 10px;
+}

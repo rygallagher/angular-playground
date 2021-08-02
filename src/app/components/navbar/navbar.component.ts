@@ -1,5 +1,7 @@
+import { Route } from "@angular/compiler/src/core";
+import { THIS_EXPR } from "@angular/compiler/src/output/output_ast";
 import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { StorageService } from "src/app/services/storage.service";
 
 const COLOR_KEY = "COLOR";
@@ -16,7 +18,8 @@ export class NavbarComponent implements OnInit {
     opened = false;
 
     routes = new Map([
-        ['home', 'Home']
+        ['home','Home'],
+        ['jikan','Jikan']
     ]);
 
     ColorConstants = new Map([
@@ -34,7 +37,24 @@ export class NavbarComponent implements OnInit {
     constructor(
         private activatedRoute : ActivatedRoute,
         private storage: StorageService,
-    ) {}
+        private router: Router,
+    ) {
+        // Create route map for the sidenav
+        // This way we have a readable button link that routes correctly
+        // this.routes = new Map();
+        // this.router.config.forEach(route => {
+        //     if (route.path !== undefined) {
+        //         var routeArray = route.path.split('-');
+
+        //         for (var i = 0; i < routeArray.length; i++) {
+        //             routeArray[i] = routeArray[i].charAt(0).toUpperCase() + routeArray[i].slice(1);
+        //         }
+
+        //         this.routes.set(route.path, routeArray.join());                
+        //     }            
+        // });
+        // this.routes.delete('');
+    }
 
     ngOnInit(): void {
 

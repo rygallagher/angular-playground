@@ -34,6 +34,10 @@ import { ConfirmationDialogComponent } from './components/confirmation-dialog/co
 import { HomeComponent } from './components/home/home.component';
 import { CalendarWidgetComponent } from './components/calendar-widget/calendar-widget.component';
 import { TimeWidgetComponent } from './components/time-widget/time-widget.component';
+import { JikanComponent } from './components/jikan/jikan.component';
+import { ScrollingModule } from '@angular/cdk/scrolling';
+import { JikanAnimeComponent } from './components/jikan-anime/jikan-anime.component';
+import { JikanMangaComponent } from './components/jikan-manga/jikan-manga.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +47,9 @@ import { TimeWidgetComponent } from './components/time-widget/time-widget.compon
     HomeComponent,
     CalendarWidgetComponent,
     TimeWidgetComponent,
+    JikanComponent,
+    JikanAnimeComponent,
+    JikanMangaComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -72,6 +79,7 @@ import { TimeWidgetComponent } from './components/time-widget/time-widget.compon
     MatCheckboxModule,
     MatDialogModule,
     MatMenuModule,
+    ScrollingModule,
     ReactiveFormsModule,
   ],
   providers: [],
