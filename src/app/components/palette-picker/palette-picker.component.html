@@ -1,0 +1,60 @@
+<div class="padding-20 flex-row">
+    <div class="flex-3">
+        <h2>Primary Palette</h2>
+
+        <mat-form-field class="margin-r-10">
+            <span matPrefix>#</span>
+            <input matInput autocomplete="off" type="text" [(ngModel)]="primaryColor">
+        </mat-form-field>
+        
+        <button mat-raised-button color="primary" (click)="savePrimaryColor()">Save Primary Color</button>
+                
+        <p>Primary Color Palette</p>
+        <div *ngFor="let color of primaryColorPalette" [style.background-color]="color.hex" [style.color]="color.darkContrast ? 'black' : 'white'">
+            {{color.name}}
+        </div>
+    </div>
+
+    <div class="flex-1"></div>
+
+    <div class="flex-3">
+        <h2>Secondary Palette</h2>
+
+        <mat-form-field class="margin-r-10">
+            <span matPrefix>#</span>
+            <input matInput autocomplete="off" type="text" [(ngModel)]="accentColor">
+        </mat-form-field>
+        
+        <button mat-raised-button color="accent" (click)="saveAccentColor()">Save Accent Color</button>
+                
+        <p>Accent Color Palette</p>
+        
+        <div *ngFor="let color of accentColorPalette" [style.background-color]="color.hex" [style.color]="color.darkContrast ? 'black' : 'white'">
+            {{color.name}}
+        </div>  
+    </div>  
+</div>
+
+<hr>
+
+<h2>Buttons</h2>
+
+<div class="padding-20 rounded-border">    
+    <sample-button></sample-button>
+</div>
+
+<hr>
+
+<h2>Form</h2>
+
+<div class="padding-20 rounded-border">    
+    <sample-form></sample-form>
+</div>
+
+<hr>
+
+<h2>Progress Bars & Spinners</h2>
+
+<div class="padding-20 rounded-border">    
+    <sample-progress></sample-progress>
+</div>

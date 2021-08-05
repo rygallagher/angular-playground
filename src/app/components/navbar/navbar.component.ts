@@ -1,14 +1,7 @@
-import { Route } from "@angular/compiler/src/core";
-import { THIS_EXPR } from "@angular/compiler/src/output/output_ast";
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { StorageService } from "src/app/services/storage.service";
-
-const COLOR_KEY = "COLOR";
-const MODE_KEY = "MODE";
-const DEFAULT_COLOR = "blue";
-const DEFAULT_MODE = "light";
-
+import { MODE_KEY, COLOR_KEY, DEFAULT_MODE, DEFAULT_COLOR } from "src/app/utils/constants/storage_keys.constant";
 @Component({
     selector: 'navbar',
     templateUrl: './navbar.component.html',
@@ -19,7 +12,8 @@ export class NavbarComponent implements OnInit {
 
     routes = new Map([
         ['home','Home'],
-        ['jikan','Jikan']
+        ['jikan','Jikan'],
+        ['palette-picker', 'Palette Picker'],
     ]);
 
     ColorConstants = new Map([

@@ -4,6 +4,7 @@ import { HomeComponent } from './components/home/home.component';
 import { JikanAnimeComponent } from './components/jikan-anime/jikan-anime.component';
 import { JikanMangaComponent } from './components/jikan-manga/jikan-manga.component';
 import { JikanComponent } from './components/jikan/jikan.component';
+import { PalettePickerComponent } from './components/palette-picker/palette-picker.component';
 
 const routes: Routes = [
     {
@@ -21,6 +22,10 @@ const routes: Routes = [
     {
         path: 'jikan/manga/:id',
         component: JikanMangaComponent,
+    },
+    {
+        path: 'palette-picker',
+        component: PalettePickerComponent,
     },
     {
         path: '',

@@ -29,6 +29,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatMenuModule } from '@angular/material/menu'; 
+import { MatRadioModule } from '@angular/material/radio'; 
+import { MatSliderModule } from '@angular/material/slider'; 
 
 import { ConfirmationDialogComponent } from './components/confirmation-dialog/confirmation-dialog.component';
 import { HomeComponent } from './components/home/home.component';
@@ -38,6 +40,10 @@ import { JikanComponent } from './components/jikan/jikan.component';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { JikanAnimeComponent } from './components/jikan-anime/jikan-anime.component';
 import { JikanMangaComponent } from './components/jikan-manga/jikan-manga.component';
+import { PalettePickerComponent } from './components/palette-picker/palette-picker.component';
+import { SampleFormComponent } from './components/sample-form/sample-form.component';
+import { SampleProgressComponent } from './components/sample-progress/sample-progress.component';
+import { SampleButtonComponent } from './components/sample-button/sample-button.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +56,10 @@ import { JikanMangaComponent } from './components/jikan-manga/jikan-manga.compon
     JikanComponent,
     JikanAnimeComponent,
     JikanMangaComponent,
+    PalettePickerComponent,
+    SampleFormComponent,
+    SampleProgressComponent,
+    SampleButtonComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -79,6 +89,8 @@ import { JikanMangaComponent } from './components/jikan-manga/jikan-manga.compon
     MatCheckboxModule,
     MatDialogModule,
     MatMenuModule,
+    MatRadioModule,
+    MatSliderModule,
     ScrollingModule,
     ReactiveFormsModule,
   ],
