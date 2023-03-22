@@ -44,6 +44,7 @@ import { SampleProgressComponent } from './components/sample-progress/sample-pro
 import { SampleButtonComponent } from './components/sample-button/sample-button.component';
 import { FormsComponent } from './components/forms/forms.component';
 import { FormQuestionComponent } from './components/form-question/form-question.component';
+import { QuestionTypeDialogComponent } from './components/question-type-dialog/question-type-dialog.component';
 
 @NgModule({
   declarations: [
@@ -59,6 +60,7 @@ import { FormQuestionComponent } from './components/form-question/form-question.
     SampleButtonComponent,
     FormsComponent,
     FormQuestionComponent,
+    QuestionTypeDialogComponent,
   ],
   imports: [
     AppRoutingModule,

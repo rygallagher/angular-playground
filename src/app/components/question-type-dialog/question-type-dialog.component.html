@@ -1,0 +1,39 @@
+<h1 mat-dialog-title color="primary">Add Question</h1>
+
+<div mat-dialog-content class="flex flex-col gap-6 p-8">
+    <button mat-raised-button color="primary" (click)="chooseOption(input)">
+        <div class="p-4">
+            Single Line Input
+        </div>
+    </button>
+
+    <button mat-raised-button color="primary" (click)="chooseOption(textArea)">
+        <div class="p-4">
+            Multi Line Input
+        </div>
+    </button>
+
+    <button mat-raised-button color="primary" (click)="chooseOption(date)">
+        <div class="p-4">
+            Date Input
+        </div>
+    </button>
+
+    <button mat-raised-button color="primary" (click)="chooseOption(checkBox)">
+        <div class="p-4">
+            Checkboxes
+        </div>
+    </button>
+
+    <button mat-raised-button color="primary" (click)="chooseOption(radioButton)">
+        <div class="p-4">
+            Radio Buttons
+        </div>
+    </button>
+
+    <button mat-raised-button color="primary" (click)="chooseOption(select)">
+        <div class="p-4">
+            Drop Down Select
+        </div>
+    </button>
+</div>
