@@ -34,6 +34,8 @@
                             (removeQuestion)="removeQuestion(i)">
                         </app-form-question>
                     </div>
+
+                    <mat-divider *ngIf="i < form.controls.questions.length"></mat-divider>
                 </div>
             </div>
         </div>

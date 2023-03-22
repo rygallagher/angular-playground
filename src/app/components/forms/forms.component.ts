@@ -37,12 +37,33 @@ export class FormsComponent {
         id: new FormControl(null),
         name: new FormControl('New Form'),
         description: new FormControl(null),
-        questions: new FormArray<FormGroup<QuestionControls>>([]),
+        questions: new FormArray<FormGroup<QuestionControls>>([
+            new FormGroup<QuestionControls>({
+                text: new FormControl('First Name'),
+                type: new FormControl(QuestionTypes.Input),
+                options: new FormArray<FormGroup<OptionControls>>([]),
+            }),
+            new FormGroup<QuestionControls>({
+                text: new FormControl('Last Name'),
+                type: new FormControl(QuestionTypes.Input),
+                options: new FormArray<FormGroup<OptionControls>>([]),
+            }),
+            new FormGroup<QuestionControls>({
+                text: new FormControl('Phone Number'),
+                type: new FormControl(QuestionTypes.Input),
+                options: new FormArray<FormGroup<OptionControls>>([]),
+            }),
+            new FormGroup<QuestionControls>({
+                text: new FormControl('Email Address'),
+                type: new FormControl(QuestionTypes.Input),
+                options: new FormArray<FormGroup<OptionControls>>([]),
+            }),
+        ]),
     });
 
     addQuestion(): void {
         const question = new FormGroup<QuestionControls>({
-            text: new FormControl('First Name'),
+            text: new FormControl(null),
             type: new FormControl(QuestionTypes.Input),
             options: new FormArray<FormGroup<OptionControls>>([]),
         });
@@ -60,13 +81,12 @@ export class FormsComponent {
 }
 
 export function moveItemInFormArray(formArray: FormArray, fromIndex: number, toIndex: number): void {
-    console.log('from',fromIndex,'to',toIndex)
-    const dir = toIndex > fromIndex ? 1 : -1;
+    const direction = toIndex > fromIndex ? 1 : -1;
 
     const item = formArray.at(fromIndex);
 
-    for (let i = fromIndex; i * dir < toIndex * dir; i = i + dir) {
-        const current = formArray.at(i + dir);
+    for (let i = fromIndex; i * direction < toIndex * direction; i = i + direction) {
+        const current = formArray.at(i + direction);
         formArray.setControl(i, current);
     }
     
