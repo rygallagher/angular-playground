@@ -10,7 +10,16 @@
 @import './app/styles/red_palette.scss';
 @import './app/styles/yellow_palette.scss';
 
-@include mat.core();
+// TODO(v15): As of v15 mat.legacy-core no longer includes default typography styles.
+//  The following line adds:
+//    1. Default typography styles for all components
+//    2. Styles for typography hierarchy classes (e.g. .mat-headline-1)
+//  If you specify typography styles for the components you use elsewhere, you should delete this line.
+//  If you don't need the default component typographies but still want the hierarchy styles,
+//  you can delete this line and instead use:
+//    `@include mat.legacy-typography-hierarchy(mat.define-legacy-typography-config());`
+@include mat.all-legacy-component-typographies();
+@include mat.legacy-core();
 
 // Warn themes
 $light-theme-warn-red: mat.define-palette($red-palette, 500);
@@ -188,78 +197,78 @@ $dark-theme-yellow: mat.define-dark-theme((
 
 // Theme classes
 // Change at navbar level
-@include mat.all-component-themes($dark-theme-blue);
+@include mat.all-legacy-component-themes($dark-theme-blue);
 
 .light-theme-blue {
-    @include mat.all-component-themes($light-theme-blue);
+    @include mat.all-legacy-component-themes($light-theme-blue);
 }
 
 .light-theme-brown {
-    @include mat.all-component-themes($light-theme-brown);
+    @include mat.all-legacy-component-themes($light-theme-brown);
 }
 
 .light-theme-gray {
-    @include mat.all-component-themes($light-theme-gray);
+    @include mat.all-legacy-component-themes($light-theme-gray);
 }
 
 .light-theme-green {
-    @include mat.all-component-themes($light-theme-green);
+    @include mat.all-legacy-component-themes($light-theme-green);
 }
 
 .light-theme-orange {
-    @include mat.all-component-themes($light-theme-orange);
+    @include mat.all-legacy-component-themes($light-theme-orange);
 }
 
 .light-theme-pink {
-    @include mat.all-component-themes($light-theme-pink);
+    @include mat.all-legacy-component-themes($light-theme-pink);
 }
 
 .light-theme-purple {
-    @include mat.all-component-themes($light-theme-purple);
+    @include mat.all-legacy-component-themes($light-theme-purple);
 }
 
 .light-theme-red {
-    @include mat.all-component-themes($light-theme-red);
+    @include mat.all-legacy-component-themes($light-theme-red);
 }
 
 .light-theme-yellow {
-    @include mat.all-component-themes($light-theme-yellow);
+    @include mat.all-legacy-component-themes($light-theme-yellow);
 }
 
 .dark-theme-blue {
-    @include mat.all-component-themes($dark-theme-blue);
+    @include mat.all-legacy-component-themes($dark-theme-blue);
 }
 
 .dark-theme-brown {
-    @include mat.all-component-themes($dark-theme-brown);
+    @include mat.all-legacy-component-themes($dark-theme-brown);
 }
 
 .dark-theme-gray {
-    @include mat.all-component-themes($dark-theme-gray);
+    @include mat.all-legacy-component-themes($dark-theme-gray);
 }
 
 .dark-theme-green {
-    @include mat.all-component-themes($dark-theme-green);
+    @include mat.all-legacy-component-themes($dark-theme-green);
 }
 
 .dark-theme-orange {
-    @include mat.all-component-themes($dark-theme-orange);
+    @include mat.all-legacy-component-themes($dark-theme-orange);
 }
 
 .dark-theme-pink {
-    @include mat.all-component-themes($dark-theme-pink);
+    @include mat.all-legacy-component-themes($dark-theme-pink);
 }
 
 .dark-theme-purple {
-    @include mat.all-component-themes($dark-theme-purple);
+    @include mat.all-legacy-component-themes($dark-theme-purple);
 }
 
 .dark-theme-red {
-    @include mat.all-component-themes($dark-theme-red);
+    @include mat.all-legacy-component-themes($dark-theme-red);
 }
 
 .dark-theme-yellow {
-    @include mat.all-component-themes($dark-theme-yellow);
+    @include mat.all-legacy-component-themes($dark-theme-yellow);
 }
 
 html, body { height: 100%; }
@@ -353,9 +362,9 @@ $dark-theme-dynamic: mat.define-dark-theme((
 ));
 
 .light-theme-dynamic {
-    @include mat.all-component-themes($light-theme-dynamic);
+    @include mat.all-legacy-component-themes($light-theme-dynamic);
 }
 
 .dark-theme-dynamic {
-    @include mat.all-component-themes($dark-theme-dynamic)
+    @include mat.all-legacy-component-themes($dark-theme-dynamic)
 }
