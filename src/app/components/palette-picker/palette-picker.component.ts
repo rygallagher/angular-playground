@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { StorageService } from 'src/app/services/storage.service';
-import { ACCENT_HEX_KEY, COLOR_KEY, PRIMARY_HEX_KEY } from 'src/app/utils/constants/storage_keys.constant';
+import { StorageService } from 'app/services/storage.service';
+import { ACCENT_HEX_KEY, COLOR_KEY, PRIMARY_HEX_KEY } from 'app/utils/constants/storage_keys.constant';
 
 declare var require: any;
 var tinycolor = require("tinycolor2");

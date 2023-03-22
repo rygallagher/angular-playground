@@ -1,7 +1,11 @@
-<div class="flex-row">
-    <mat-card class="card-500 margin-10">
-        <time-widget></time-widget>
-        <br><br>
-        <calendar-widget></calendar-widget>
-    </mat-card>
+<div class="flex items-center justify-center h-full">
+    <mat-card class="w-1/4 gap-1">
+        <div class="p-3 m-3 rounded-lg border border-solid border-black">
+            <div class="flex items-center justify-center">
+                <time-widget></time-widget>
+            </div>
+            
+            <mat-calendar [(selected)]="date"></mat-calendar>
+        </div>        
+    </mat-card>    
 </div>

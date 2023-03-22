@@ -1,22 +1,21 @@
-import { Component, OnInit } from "@angular/core";
+import { Component } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
-import { StorageService } from "src/app/services/storage.service";
-import { MODE_KEY, COLOR_KEY, DEFAULT_MODE, DEFAULT_COLOR } from "src/app/utils/constants/storage_keys.constant";
+import { StorageService } from "app/services/storage.service";
+import { MODE_KEY, COLOR_KEY, DEFAULT_MODE, DEFAULT_COLOR } from "app/utils/constants/storage_keys.constant";
 @Component({
     selector: 'navbar',
     templateUrl: './navbar.component.html',
     styleUrls: ['./navbar.component.scss']
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent {
     opened = false;
 
     routes = new Map([
         ['home','Home'],
-        ['jikan','Jikan'],
         ['palette-picker', 'Palette Picker'],
     ]);
 
-    ColorConstants = new Map([
+    colorConstants = new Map([
         ['blue', 'Blue'],
         ['brown', 'Brown'],
         ['gray', 'Gray'],
@@ -26,33 +25,13 @@ export class NavbarComponent implements OnInit {
         ['purple', 'Purple'],
         ['red', 'Red'],
         ['yellow', 'Yellow'],
-    ])!;
+    ]);
 
     constructor(
         private activatedRoute : ActivatedRoute,
         private storage: StorageService,
         private router: Router,
-    ) {
-        // Create route map for the sidenav
-        // This way we have a readable button link that routes correctly
-        // this.routes = new Map();
-        // this.router.config.forEach(route => {
-        //     if (route.path !== undefined) {
-        //         var routeArray = route.path.split('-');
-
-        //         for (var i = 0; i < routeArray.length; i++) {
-        //             routeArray[i] = routeArray[i].charAt(0).toUpperCase() + routeArray[i].slice(1);
-        //         }
-
-        //         this.routes.set(route.path, routeArray.join());                
-        //     }            
-        // });
-        // this.routes.delete('');
-    }
-
-    ngOnInit(): void {
-
-    }
+    ) {}
 
     get activeTheme(): string {
         const mode = this.storage.getItem(MODE_KEY);
@@ -70,7 +49,7 @@ export class NavbarComponent implements OnInit {
     }
     
     get allColors(): Map<string, string> {
-        return this.ColorConstants;
+        return this.colorConstants;
     }
 
     get activeMode(): string {
