@@ -31,6 +31,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatMenuModule } from '@angular/material/menu'; 
 import { MatRadioModule } from '@angular/material/radio'; 
 import { MatSliderModule } from '@angular/material/slider';
+import { DragDropModule } from '@angular/cdk/drag-drop'; 
 
 import { ConfirmationDialogComponent } from './components/confirmation-dialog/confirmation-dialog.component';
 import { HomeComponent } from './components/home/home.component';
@@ -41,6 +42,8 @@ import { PalettePickerComponent } from './components/palette-picker/palette-pick
 import { SampleFormComponent } from './components/sample-form/sample-form.component';
 import { SampleProgressComponent } from './components/sample-progress/sample-progress.component';
 import { SampleButtonComponent } from './components/sample-button/sample-button.component';
+import { FormsComponent } from './components/forms/forms.component';
+import { FormQuestionComponent } from './components/form-question/form-question.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +57,8 @@ import { SampleButtonComponent } from './components/sample-button/sample-button.
     SampleFormComponent,
     SampleProgressComponent,
     SampleButtonComponent,
+    FormsComponent,
+    FormQuestionComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -87,6 +92,7 @@ import { SampleButtonComponent } from './components/sample-button/sample-button.
     MatSliderModule,
     ScrollingModule,
     ReactiveFormsModule,
+    DragDropModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -12,6 +12,7 @@ export class NavbarComponent {
 
     routes = new Map([
         ['home','Home'],
+        ['forms', 'Forms'],
         ['palette-picker', 'Palette Picker'],
     ]);
 

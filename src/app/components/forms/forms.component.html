@@ -1,0 +1,41 @@
+<div class="flex flex-col items-center w-full h-full p-10">
+    <form [formGroup]="form" class="gap-20">
+        <div class="grid grid-cols-3 gap-6">
+            <div class="col-span-1">
+                <mat-form-field appearance="outline">
+                    <mat-label>Form Name</mat-label>
+                    <input matInput formControlName="name">
+                </mat-form-field>
+            </div>            
+    
+            <div class="col-span-2">
+                <mat-form-field appearance="outline" class="w-full">
+                    <mat-label>Description</mat-label>
+                    <input matInput formControlName="description">
+                </mat-form-field>
+            </div>
+        </div>
+        
+        <div class="flex flex-col">
+            <div class="mb-2 ml-auto">
+                <button mat-raised-button color="primary" (click)="addQuestion()">Add Question</button>
+            </div>
+
+            <div class="p-3 rounded border border-solid border-gray-800" cdkDropList (cdkDropListDropped)="drop($event)">
+                <div formArrayName="questions" *ngFor="let question of form.controls.questions.controls; let i = index">
+                    <div [formGroupName]="i" class="flex flex-row mt-6 mb-2" cdkDrag>
+                        <button type="button" class="drag-handle flex-none" mat-icon-button cdkDragHandle>
+                            <mat-icon>unfold_more</mat-icon>
+                        </button>
+
+                        <app-form-question
+                            class="flex-1"
+                            [questionForm]="question"
+                            (removeQuestion)="removeQuestion(i)">
+                        </app-form-question>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
