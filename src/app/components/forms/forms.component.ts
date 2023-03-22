@@ -25,6 +25,7 @@ export enum QuestionTypes {
     Select = 'Select',
     CheckBox = 'CheckBox',
     RadioButton = 'RadioButton',
+    Date = 'Date',
 }
 
 @Component({
@@ -38,6 +39,11 @@ export class FormsComponent {
         name: new FormControl('New Form'),
         description: new FormControl(null),
         questions: new FormArray<FormGroup<QuestionControls>>([
+            new FormGroup<QuestionControls>({
+                text: new FormControl('Start Date'),
+                type: new FormControl(QuestionTypes.Date),
+                options: new FormArray<FormGroup<OptionControls>>([]),
+            }),
             new FormGroup<QuestionControls>({
                 text: new FormControl('First Name'),
                 type: new FormControl(QuestionTypes.Input),
@@ -56,6 +62,11 @@ export class FormsComponent {
             new FormGroup<QuestionControls>({
                 text: new FormControl('Email Address'),
                 type: new FormControl(QuestionTypes.Input),
+                options: new FormArray<FormGroup<OptionControls>>([]),
+            }),
+            new FormGroup<QuestionControls>({
+                text: new FormControl('Project Summary'),
+                type: new FormControl(QuestionTypes.TextArea),
                 options: new FormArray<FormGroup<OptionControls>>([]),
             }),
         ]),

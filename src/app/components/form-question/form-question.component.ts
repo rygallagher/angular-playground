@@ -17,6 +17,7 @@ export class FormQuestionComponent {
     select = QuestionTypes.Select;
     radioButton = QuestionTypes.RadioButton;
     checkBox = QuestionTypes.CheckBox;
+    date = QuestionTypes.Date;
 
     get type(): QuestionTypes | null{
         return this.questionForm.controls.type.value;
