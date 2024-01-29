@@ -1,9 +1,8 @@
 # Angular Playground
 This project is to play around with angular components, modern design practices, and any interesting npm packages.
 
-## Themes
-Currently, nine color palettes are supported for both dark and light modes.
-They are blue, brown, gray, green, orange, pink, purple, red, and yellow.
+## Dynamic Themes
+Use the color picker to assign dynamic palettes.
 
 ## Material Calendar Widget
 The calendar is a stationary material calendar only previewing the current month and day.
