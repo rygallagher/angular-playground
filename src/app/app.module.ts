@@ -31,6 +31,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatMenuModule } from '@angular/material/menu'; 
 import { MatRadioModule } from '@angular/material/radio'; 
 import { MatSliderModule } from '@angular/material/slider';
+import { MatChipsModule } from '@angular/material/chips'; 
 import { DragDropModule } from '@angular/cdk/drag-drop'; 
 
 import { ConfirmationDialogComponent } from './components/confirmation-dialog/confirmation-dialog.component';
@@ -90,6 +91,7 @@ import { FormQuestionComponent } from './components/form-question/form-question.
     MatMenuModule,
     MatRadioModule,
     MatSliderModule,
+    MatChipsModule,
     ScrollingModule,
     ReactiveFormsModule,
     DragDropModule,

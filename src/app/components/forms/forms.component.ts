@@ -2,7 +2,7 @@ import { CdkDragDrop } from '@angular/cdk/drag-drop';
 import { Component } from '@angular/core';
 import { FormArray, FormControl, FormGroup } from '@angular/forms';
 
-interface FormControls {
+export interface FormControls {
     id: FormControl<number | null>;
     name: FormControl<string | null>;
     description: FormControl<string | null>;
@@ -15,7 +15,7 @@ export interface QuestionControls {
     options: FormArray<FormGroup<OptionControls>>;
 }
 
-interface OptionControls {
+export interface OptionControls {
     text: FormControl<string | null>;
 }
 
@@ -38,35 +38,25 @@ export class FormsComponent {
         id: new FormControl(null),
         name: new FormControl('New Form'),
         description: new FormControl(null),
-        questions: new FormArray<FormGroup<QuestionControls>>([
+        questions: new FormArray<FormGroup<QuestionControls>>([            
             new FormGroup<QuestionControls>({
-                text: new FormControl('Start Date'),
-                type: new FormControl(QuestionTypes.Date),
-                options: new FormArray<FormGroup<OptionControls>>([]),
-            }),
-            new FormGroup<QuestionControls>({
-                text: new FormControl('First Name'),
-                type: new FormControl(QuestionTypes.Input),
-                options: new FormArray<FormGroup<OptionControls>>([]),
-            }),
-            new FormGroup<QuestionControls>({
-                text: new FormControl('Last Name'),
-                type: new FormControl(QuestionTypes.Input),
-                options: new FormArray<FormGroup<OptionControls>>([]),
-            }),
-            new FormGroup<QuestionControls>({
-                text: new FormControl('Phone Number'),
-                type: new FormControl(QuestionTypes.Input),
-                options: new FormArray<FormGroup<OptionControls>>([]),
-            }),
-            new FormGroup<QuestionControls>({
-                text: new FormControl('Email Address'),
+                text: new FormControl('Name'),
                 type: new FormControl(QuestionTypes.Input),
                 options: new FormArray<FormGroup<OptionControls>>([]),
             }),
             new FormGroup<QuestionControls>({
                 text: new FormControl('Project Summary'),
                 type: new FormControl(QuestionTypes.TextArea),
+                options: new FormArray<FormGroup<OptionControls>>([]),
+            }),
+            new FormGroup<QuestionControls>({
+                text: new FormControl('Start Date'),
+                type: new FormControl(QuestionTypes.Date),
+                options: new FormArray<FormGroup<OptionControls>>([]),
+            }),
+            new FormGroup<QuestionControls>({
+                text: new FormControl('How Excited Are You'),
+                type: new FormControl(QuestionTypes.Select),
                 options: new FormArray<FormGroup<OptionControls>>([]),
             }),
         ]),

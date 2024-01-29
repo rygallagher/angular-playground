@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { FormGroup } from '@angular/forms';
-import { QuestionControls, QuestionTypes } from '../forms/forms.component';
+import { FormControl, FormGroup } from '@angular/forms';
+import { OptionControls, QuestionControls, QuestionTypes } from '../forms/forms.component';
 
 @Component({
     selector: 'app-form-question',
@@ -19,11 +19,29 @@ export class FormQuestionComponent {
     checkBox = QuestionTypes.CheckBox;
     date = QuestionTypes.Date;
 
+    optionText = '';
+
     get type(): QuestionTypes | null{
         return this.questionForm.controls.type.value;
     }
 
+    get options(): FormGroup<OptionControls>[] {
+        return this.questionForm.controls.options.controls;
+    }
+
     removeQuestionClicked(): void {
         this.removeQuestion.emit();
+    }
+
+    addOption(): void {
+        this.questionForm.controls.options.push(
+            new FormGroup<OptionControls>({
+                text: new FormControl(this.optionText)
+            })
+        );
+
+        this.optionText = '';
+
+        console.log(this.questionForm);
     }
 }

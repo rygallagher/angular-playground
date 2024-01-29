@@ -8,21 +8,41 @@
         <div *ngIf="type && type === input">
             <mat-form-field appearance="outline" class="w-full">
                 <mat-label>Response</mat-label>
-                <input matInput disabled>
+                <input matInput>
             </mat-form-field>
         </div>
 
         <div *ngIf="type && type === textArea">
             <mat-form-field appearance="outline" class="w-full">
                 <mat-label>Response</mat-label>
-                <textarea rows="4" matInput disabled></textarea>
+                <textarea rows="4" matInput></textarea>
             </mat-form-field>
         </div>
 
         <div *ngIf="type && type === date">
             <mat-form-field appearance="outline" class="w-full">
                 <mat-label>Response</mat-label>
-                <input matInput type="date" disabled>
+                <input matInput type="date">
+            </mat-form-field>
+        </div>
+
+        <div *ngIf="type && type === select">
+            <mat-form-field appearance="outline" class="w-full">
+                <mat-label>Option</mat-label>
+                
+                <div class="flex flex-row w-full">
+                    <input matInput [(ngModel)]="optionText" type="text" class="flex-1" maxlength="50">
+
+                    <button mat-raised-button color="primary" class="flex-none" (click)="addOption()">
+                        Add Option
+                    </button>
+                </div>
+
+                <mat-chip-set>
+                    <div formArrayName="options" *ngFor="let option of questionForm.controls.options.controls" >
+                        <mat-chip> {{option.controls.text.value}} </mat-chip>
+                    </div>
+                </mat-chip-set>                
             </mat-form-field>
         </div>
     </div>

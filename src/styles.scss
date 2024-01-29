@@ -5,6 +5,52 @@
 @tailwind base;
 @tailwind utilities;
 
+:root {
+    --theme-primary-50: #E3F2FD,
+    --theme-primary-100: #BBDEFB,
+    --theme-primary-200: #90CAF9,
+    --theme-primary-300: #64B5F6,
+    --theme-primary-400: #42A5F5,
+    --theme-primary-500: #2196F3,
+    --theme-primary-600: #1E88E5,
+    --theme-primary-700: #1976D2,
+    --theme-primary-800: #1565C0,
+    --theme-primary-900: #0D47A1,
+
+    --theme-primary-contrast-50: black;
+    --theme-primary-contrast-100: black;
+    --theme-primary-contrast-200: black;
+    --theme-primary-contrast-300: black;
+    --theme-primary-contrast-400: black;
+    --theme-primary-contrast-500: black;
+    --theme-primary-contrast-600: black;
+    --theme-primary-contrast-700: white;
+    --theme-primary-contrast-800: white;
+    --theme-primary-contrast-900: white;
+
+    --theme-accent-50: #E8F5E9,
+    --theme-accent-100: #C8E6C9,
+    --theme-accent-200: #A5D6A7,
+    --theme-accent-300: #81C784,
+    --theme-accent-400: #66BB6A,
+    --theme-accent-500: #4CAF50,
+    --theme-accent-600: #43A047,
+    --theme-accent-700: #388E3C,
+    --theme-accent-800: #2E7D32,
+    --theme-accent-900: #1B5E20,
+
+    --theme-accent-contrast-50: black;
+    --theme-accent-contrast-100: black;
+    --theme-accent-contrast-200: black;
+    --theme-accent-contrast-300: black;
+    --theme-accent-contrast-400: black;
+    --theme-accent-contrast-500: black;
+    --theme-accent-contrast-600: black;
+    --theme-accent-contrast-700: black;
+    --theme-accent-contrast-800: white;
+    --theme-accent-contrast-900: white;
+}
+
 $my-primary: mat.define-palette(mat.$indigo-palette, 500);
 $my-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
 $my-warn: mat.define-palette(mat.$red-palette);
@@ -21,7 +67,77 @@ $my-theme: mat.define-light-theme(
     )
 );
 
+$dynamic-palette-primary: (
+    50: var(--theme-primary-50),
+    100: var(--theme-primary-100),
+    200: var(--theme-primary-200),
+    300: var(--theme-primary-300),
+    400: var(--theme-primary-400),
+    500: var(--theme-primary-500),
+    600: var(--theme-primary-600),
+    700: var(--theme-primary-700),
+    800: var(--theme-primary-800),
+    900: var(--theme-primary-900),
+
+    contrast: (
+        50: var(--theme-primary-contrast-50),
+        100: var(--theme-primary-contrast-100),
+        200: var(--theme-primary-contrast-200),
+        300: var(--theme-primary-contrast-300),
+        400: var(--theme-primary-contrast-400),
+        500: var(--theme-primary-contrast-500),
+        600: var(--theme-primary-contrast-600),
+        700: var(--theme-primary-contrast-700),
+        800: var(--theme-primary-contrast-800),
+        900: var(--theme-primary-contrast-900)
+    )
+);
+
+
+$dynamic-palette-accent: (
+    50: var(--theme-accent-50),
+    100: var(--theme-accent-100),
+    200: var(--theme-accent-200),
+    300: var(--theme-accent-300),
+    400: var(--theme-accent-400),
+    500: var(--theme-accent-500),
+    600: var(--theme-accent-600),
+    700: var(--theme-accent-700),
+    800: var(--theme-accent-800),
+    900: var(--theme-accent-900),
+
+    contrast: (
+        50: var(--theme-accent-contrast-50),
+        100: var(--theme-accent-contrast-100),
+        200: var(--theme-accent-contrast-200),
+        300: var(--theme-accent-contrast-300),
+        400: var(--theme-accent-contrast-400),
+        500: var(--theme-accent-contrast-500),
+        600: var(--theme-accent-contrast-600),
+        700: var(--theme-accent-contrast-700),
+        800: var(--theme-accent-contrast-800),
+        900: var(--theme-accent-contrast-900)
+    )
+);
+
 @include mat.all-component-themes($my-theme);
+
+//This class is in the index.html body
+.dynamic-theme {
+    $dynamic-theme: mat.define-light-theme(
+        (
+            color: (
+                primary: mat.define-palette($dynamic-palette-primary),
+                accent: mat.define-palette($dynamic-palette-accent),
+                warn: mat.define-palette($my-warn),
+            ),
+            typography: mat.define-typography-config(),
+            density: 0,
+        )
+    );
+
+    @include mat.all-component-themes($dynamic-theme);
+}
 
 .mat-mdc-form-field.mat-mdc-form-field.mat-mdc-form-field.mat-mdc-form-field.mat-mdc-form-field .mdc-notched-outline__notch {
     border-right-style: hidden;

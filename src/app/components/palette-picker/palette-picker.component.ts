@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { StorageService } from 'app/services/storage.service';
 import { ACCENT_HEX_KEY, COLOR_KEY, PRIMARY_HEX_KEY } from 'app/utils/constants/storage_keys.constant';
 
-declare var require: any;
-var tinycolor = require("tinycolor2");
+declare let require: any;
+const tinycolor = require("tinycolor2");
 
 export interface Color {
   name: string;
@@ -54,6 +54,7 @@ export class PalettePickerComponent {
             const value1 = color.hex;
             const key2 = `--theme-accent-contrast-${color.name}`;
             const value2 = color.darkContrast ? 'rgba(black, 0.87)' : 'white';
+            
             document.documentElement.style.setProperty(key1, value1);
             document.documentElement.style.setProperty(key2, value2);
         }
@@ -84,6 +85,7 @@ function computeColors(hex: string): Color[] {
 
 function getColorObject(value: any, name: any): Color {
     const c = tinycolor(value);
+
     return {
         name: name,
         hex: c.toHexString(),
