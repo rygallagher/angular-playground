@@ -1,6 +1,8 @@
 import { CdkDragDrop } from '@angular/cdk/drag-drop';
 import { Component } from '@angular/core';
 import { FormArray, FormControl, FormGroup } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+import { QuestionTypeDialogComponent } from '../question-type-dialog/question-type-dialog.component';
 
 export interface FormControls {
     id: FormControl<number | null>;
@@ -62,14 +64,24 @@ export class FormsComponent {
         ]),
     });
 
-    addQuestion(): void {
-        const question = new FormGroup<QuestionControls>({
-            text: new FormControl(null),
-            type: new FormControl(QuestionTypes.Input),
-            options: new FormArray<FormGroup<OptionControls>>([]),
-        });
+    constructor(
+        private matDialog: MatDialog,
+    ) {}
 
-        this.form.controls.questions.push(question);
+    addQuestion(): void {
+        const dialogRef = this.matDialog.open(QuestionTypeDialogComponent);
+
+        dialogRef.afterClosed().subscribe((response: {questionType?: QuestionTypes}) => {
+            if (response.questionType != null) {
+                const question = new FormGroup<QuestionControls>({
+                    text: new FormControl(null),
+                    type: new FormControl(response.questionType),
+                    options: new FormArray<FormGroup<OptionControls>>([]),
+                });
+
+                this.form.controls.questions.push(question);
+            }
+        });
     }
 
     removeQuestion(questionFormIndex: number): void {
