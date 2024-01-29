@@ -5,19 +5,6 @@
         </div>
     
         <time-widget></time-widget>
-
-        <button mat-icon-button [matMenuTriggerFor]="menu">
-            <mat-icon>palette</mat-icon>
-        </button>
-
-        <mat-menu #menu="matMenu">
-            <button mat-menu-item *ngFor="let color of allColors | keyvalue" (click)="setActiveColor(color.key)">
-                {{color.value}}
-            </button>
-        </mat-menu>
-
-        <button *ngIf="activeMode == 'dark'" mat-icon-button (click)="setMode()"><mat-icon>dark_mode</mat-icon></button>
-        <button *ngIf="activeMode != 'dark'" mat-icon-button (click)="setMode()"><mat-icon>light_mode</mat-icon></button>
     </mat-toolbar>
     
     <mat-sidenav-container class="sidenav-container">
